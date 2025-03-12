@@ -1,0 +1,83 @@
+# source: https://github.com/airbytehq/airbyte-platform/blob/main/charts/airbyte/values.yaml
+
+global:
+  airbyteUrl: https://airbyte.fannylimin.my.id
+
+webapp:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: airbyte/webapp
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+  resource:
+    requests:
+       memory: 256Mi
+       cpu: 250m
+
+worker:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: airbyte/worker
+    pullPolicy: IfNotPresent
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+  resource:
+    requests:
+       memory: 256Mi
+       cpu: 250m
+
+cron:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: airbyte/cron
+    pullPolicy: IfNotPresent
+  resource:
+    requests:
+       memory: 256Mi
+       cpu: 250m
+
+# Optional because Readiness & Liveness probe failed
+server:
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+  resource:
+    requests:
+       memory: 256Mi
+       cpu: 250m
+
+workload-launcher:
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+
+workload-api-server:
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 60
+    timeoutSeconds: 10

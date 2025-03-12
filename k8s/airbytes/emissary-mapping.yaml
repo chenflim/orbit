@@ -1,0 +1,10 @@
+---
+apiVersion: getambassador.io/v3alpha1
+kind: Mapping
+metadata:
+  name: airbyte-mapping
+  namespace: airbyte
+spec:
+  prefix: /
+  host: airbyte.fannylimin.my.id
+  service: airbyte-airbyte-webapp-svc

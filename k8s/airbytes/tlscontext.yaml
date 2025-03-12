@@ -1,0 +1,11 @@
+---
+apiVersion: getambassador.io/v3alpha1
+kind: TLSContext
+metadata:
+  name: airbyte-tls-0
+  namespace: emissary
+spec:
+  hosts:
+  - airbyte.fannylimin.my.id
+  secret: airbyte-tls-0.airbyte
+  min_tls_version: v1.2
