@@ -6,5 +6,5 @@ metadata:
   namespace: airbyte
 spec:
   prefix: /
-  host: airbyte.fannylimin.my.id
+  hostname: airbyte.fannylimin.my.id
   service: airbyte-airbyte-webapp-svc

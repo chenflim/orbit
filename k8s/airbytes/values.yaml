@@ -4,80 +4,106 @@ global:
   airbyteUrl: https://airbyte.fannylimin.my.id
 
 webapp:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: airbyte/webapp
-    pullPolicy: IfNotPresent
-  service:
-    type: ClusterIP
-    port: 80
-  resource:
-    requests:
-       memory: 256Mi
-       cpu: 250m
-
-worker:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: airbyte/worker
-    pullPolicy: IfNotPresent
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 5
+    successThreshold: 1
   readinessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
-  resource:
-    requests:
-       memory: 256Mi
-       cpu: 250m
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
 
 cron:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: airbyte/cron
-    pullPolicy: IfNotPresent
-  resource:
-    requests:
-       memory: 256Mi
-       cpu: 250m
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 5
+    successThreshold: 1
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
 
-# Optional because Readiness & Liveness probe failed
 server:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
+    initialDelaySeconds: 300
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 5
+    successThreshold: 1
   readinessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
-  resource:
-    requests:
-       memory: 256Mi
-       cpu: 250m
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+
+worker:
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 5
+    successThreshold: 1
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
 
 workload-launcher:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 5
+    successThreshold: 1
   readinessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
 
 workload-api-server:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 5
+    successThreshold: 1
   readinessProbe:
     enabled: true
-    initialDelaySeconds: 60
-    timeoutSeconds: 10
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
+
+connector-builder-server:
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 180
+    periodSeconds: 10
+    failureThreshold: 3
+    timeoutSeconds: 5
+    successThreshold: 1
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 10
+    timeoutSeconds: 5
+    periodSeconds: 5
+    successThreshold: 1
