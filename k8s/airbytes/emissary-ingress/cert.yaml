@@ -19,10 +19,10 @@ metadata:
   name: acme-challenge-mapping
   namespace: emissary
 spec:
+  hostname: "*"
   prefix: /.well-known/acme-challenge/
   rewrite: ""
   service: acme-challenge-service
-
 ---
 apiVersion: v1
 kind: Service

@@ -18,7 +18,7 @@ metadata:
   name: listener-https
   namespace: emissary
 spec:
-  protocol: HTTP
+  protocol: HTTPS
   port: 8443
   securityModel: XFP
   hostBinding:
