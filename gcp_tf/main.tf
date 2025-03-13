@@ -46,13 +46,13 @@ resource "google_container_node_pool" "gke_nodes" {
 
 # VPC network
 resource "google_compute_network" "vpc" {
-  name                    = "airbyte-vpc"
+  name                    = "airbyte-vpc-1"
   auto_create_subnetworks = false
 }
 
 # Subnet
 resource "google_compute_subnetwork" "subnet" {
-  name          = "airbyte-subnet"
+  name          = "airbyte-subnet-1"
   ip_cidr_range = "10.0.0.0/24"
   region        = var.region
   network       = google_compute_network.vpc.name

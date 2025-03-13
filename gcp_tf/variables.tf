@@ -16,6 +16,6 @@ variable "zone" {
 
 variable "machine_type" {
   type = string
-  default = "e2-medium" # 2 vCPU, 4GB RAM
-  sensitive   = false
+  default = "e2-standard-2" # 2 vCPU, 8GB RAM
+  sensitive = false
 }

@@ -1,0 +1,11 @@
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: airbyte-mapping
+  namespace: emissary
+spec:
+  hostname: "airbyte-orbit.fannylimin.my.id"
+  prefix: /
+  service: airbyte-airbyte-webapp-svc.airbyte.svc.cluster.local:80
+  rewrite: /

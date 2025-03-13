@@ -1,12 +1,12 @@
 # source: https://github.com/airbytehq/airbyte-platform/blob/main/charts/airbyte/values.yaml
 
 global:
-  airbyteUrl: https://airbyte.fannylimin.my.id
+  airbyteUrl: airbyte.fannylimin.my.id
 
 webapp:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 180
+    initialDelaySeconds: 200
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 5
@@ -17,11 +17,18 @@ webapp:
     timeoutSeconds: 5
     periodSeconds: 5
     successThreshold: 1
+  resources:
+    limits:
+       cpu: 200m
+       memory: 400Mi
+    requests:
+       memory: 256Mi
+       cpu: 100m
 
 cron:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 180
+    initialDelaySeconds: 200
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 5
@@ -32,6 +39,13 @@ cron:
     timeoutSeconds: 5
     periodSeconds: 5
     successThreshold: 1
+  resources:
+    limits:
+       cpu: 300m
+       memory: 500Mi
+    requests:
+       memory: 256Mi
+       cpu: 250m
 
 server:
   livenessProbe:
@@ -47,11 +61,18 @@ server:
     timeoutSeconds: 5
     periodSeconds: 5
     successThreshold: 1
+  resources:
+    limits:
+       cpu: 300m
+       memory: 1Gi
+    requests:
+       memory: 500Mi
+       cpu: 250m
 
 worker:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 180
+    initialDelaySeconds: 200
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 5
@@ -62,11 +83,18 @@ worker:
     timeoutSeconds: 5
     periodSeconds: 5
     successThreshold: 1
+  resources:
+    limits:
+       cpu: 100m
+       memory: 500Mi
+    requests:
+       memory: 256Mi
+       cpu: 50m
 
 workload-launcher:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 180
+    initialDelaySeconds: 300
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 5
@@ -77,11 +105,18 @@ workload-launcher:
     timeoutSeconds: 5
     periodSeconds: 5
     successThreshold: 1
+  resources:
+    limits:
+       cpu: 300m
+       memory: 500Mi
+    requests:
+       memory: 256Mi
+       cpu: 250m
 
 workload-api-server:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 180
+    initialDelaySeconds: 200
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 5
@@ -92,11 +127,18 @@ workload-api-server:
     timeoutSeconds: 5
     periodSeconds: 5
     successThreshold: 1
+  resources:
+    limits:
+       cpu: 200m
+       memory: 500Mi
+    requests:
+       memory: 500Mi
+       cpu: 100m
 
 connector-builder-server:
   livenessProbe:
     enabled: true
-    initialDelaySeconds: 180
+    initialDelaySeconds: 200
     periodSeconds: 10
     failureThreshold: 3
     timeoutSeconds: 5
@@ -107,3 +149,10 @@ connector-builder-server:
     timeoutSeconds: 5
     periodSeconds: 5
     successThreshold: 1
+  resources:
+    limits:
+       cpu: 200m
+       memory: 1Gi
+    requests:
+       memory: 500Mi
+       cpu: 100m
