@@ -7,4 +7,4 @@ metadata:
 spec:
   hostname: airbyte.fannylimin.my.id
   tlsSecret:
-    name: airbyte-tls-0.airbyte
+    name: airbyte-certs
