@@ -4,7 +4,7 @@ metadata:
   name: cert-manager-http01
   namespace: emissary
 spec:
+  hostname: "*"
   prefix: /.well-known/acme-challenge/
-  hostname: airbyte.fannylimin.my.id
-  service: cm-acme-http-solver-rfj6q
-  bypass_auth: true
+  rewrite: ""
+  service: acme-challenge-service
