@@ -1,7 +1,7 @@
 # The airbyte URL should be accessible at:
 
-https://airbyte.fannylimin.my.id (nginx)
-https://airbyte-orbit.fannylimin.my.id (emissary)
+- https://airbyte.fannylimin.my.id (nginx)
+- https://airbyte-orbit.fannylimin.my.id (emissary)
 
 # GKE has this specification:
 
