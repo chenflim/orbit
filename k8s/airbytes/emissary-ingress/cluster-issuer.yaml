@@ -8,9 +8,9 @@ spec:
     email: fannyleemin@gmail.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: letsencrypt-prod-orbit-key
+      name: letsencrypt-prod-orbit
     solvers:
     - http01:
         ingress:
-          ingressClassName: ambassador
+          class: nginx
       selector: {}

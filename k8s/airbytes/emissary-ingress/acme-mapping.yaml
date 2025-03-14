@@ -1,10 +1,10 @@
-apiVersion: getambassador.io/v3alpha1
+---
+apiVersion: getambassador.io/v2
 kind: Mapping
 metadata:
-  name: cert-manager-http01
+  name: acme-challenge-mapping
   namespace: emissary
 spec:
-  hostname: "*"
   prefix: /.well-known/acme-challenge/
-  rewrite: /.well-known/acme-challenge/
+  rewrite: ""
   service: acme-challenge-service

@@ -4,12 +4,9 @@ kind: Service
 metadata:
   name: acme-challenge-service
   namespace: emissary
-  labels:
-    acme.cert-manager.io/http01-solver: "true"
 spec:
   ports:
   - port: 80
     targetPort: 8089
   selector:
     acme.cert-manager.io/http01-solver: "true"
-  type: NodePort
